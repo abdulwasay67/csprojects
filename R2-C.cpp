@@ -1,25 +1,37 @@
 #include <iostream>
 using namespace std;
 
-int calculator(int x,int y){
-    cout <<"ENTER x: " << x;
-    cout <<"ENTER y: " << y;
-    string operation;
+int calculator() {
+    string operation; 
+    int x;
+    int y;
+
+    cout <<"ENTER x: ";
+    cin >> x;
+    cout <<"ENTER y: ";
+    cin >> y;
+    
     cout <<"ENTER OPERATION: '+' '-' '*' '/':  " << operation;
-    if operation == "+";
+    cin >> operation; 
+
+    if (operation == "+"){
      return x + y;
-    else if operation == "-";
+    }
+    else if (operation == "-"){
      return x - y;
-    else if operation == "*";
+    }
+    else if (operation == "*"){
      return x * y;
-    else if opeartion == "/";
+    }
+    else if (operation == "/"){
      return x / y;
-    else;
+    }
+    else {
      cout <<"please enter from above operations only" << endl;
-     return 0;
+     return 0;}
 }
 int main(){
-   int result = calculator(x,y);
+   int result = calculator();
     cout << result;
 
 }
