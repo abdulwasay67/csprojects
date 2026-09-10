@@ -5,56 +5,50 @@ int main() {
     const double max_rating = 10.0;
     const int max_books = 3
     struct book1 {
-        string name = "";
-        cout << "ENTER NAME: " << endl;
-        cin >> name;
+        string name;
         int pages;
-        cout << "ENTER PAGES: " << endl;
-        cin >> pages;
-        
         double rating;
-        {
-        cout << "ENTER RATING: " << endl;
-        if(rating > 10.0){
-        cin >> rating;
-        }
-        else if(rating > 10.0){
-            cout << "RATING CAN NOT BE MORE THAN 10!"<< max_rating << endl;
-        }
-     }
-        string author = "";
-        cout << "ENTER AUTHOR: " << endl;
-        cin >> author;
+        string author;
     };
     book1 s1;
+    vector<book1> book1_list;
+    book1 temp_struct;
+    for(int i = 0; i < 4; i++){
+        cout << "ENTER VALUE" << i + 1 << " : "; << endl;
+        switch(i){
+            case 0: cin >> temp_struct.name; break;
+            case 1: cin >> temp_struct.pages; break;
+            case 2: cin >> temp_struct.rating; break;
+            case 3: cin >> temp_struct.author; break;
+        }
+    }
+    book1_list.push_back(temp_struct);
+
     string choice;
     cout << "DO YOU WANT TO ADD MORE BOOKS?:'y','n': " << endl;
     cin >> choice;
     struct book2;
     if(choice == "y"){
          struct book2 {
-         string name = "";
-         cout << "ENTER NAME: " << endl;
-         cin >> name;
-         int pages;
-         cout << "ENTER PAGES: " << endl;
-         cin >> pages;
-         double rating;
-         {
-         cout << "ENTER RATING: " << endl;
-         if (rating < 10){
-            cin >> rating;
-         }
-         else if(rating > 10){
-            cout << "RATING CAN NOT BE MORE THAN 10!"<< max_rating << endl;
-         }
-         }
-         string author = "";
-         cout << "ENTER AUTHOR: " << endl;
-         cin >> author;    
+            string name;
+            int pages;
+            double rating;
+            string author;
          };
+         book2 s2;
+         vector<book2> book2_list;
+         book2 temp_struct;
+         for(int i = 0; i > 4; i++){
+            cout << "ENTER VALUE" << i + 1 << " : " << endl;
+            switch(i){
+                case 0: cin >> temp_struct.name; break;
+                case 1: cin >> temp_struct.pages; break;
+                case 2: cin >> temp_struct.rating; break;
+                case 3: cin >> temp_struct.author; break;
+            }
+         }
+         book2_list.push_back(temp_struct)
      }
-    book2 s2;
     else if (choice == "n"){
         int choice2;
         cout << "DO YOU WANT TO SEE ANYTHING?; 1) NAME, 2) PAGES, 3) RATING, 4) AUTHOR, 5) EXIT: " << endl;
@@ -88,27 +82,24 @@ int main() {
     struct book3
      if(choice3 == "y"){
          struct book3 {
-         string name = "";
-         cout << "ENTER NAME: " << endl;
-         cin >> name;
-         int pages;
-         cout << "ENTER PAGES: " << endl;
-         cin >> pages;
-         double rating;
-         {
-         cout << "ENTER RATING: " << endl;
-         if (rating > 10){
-         cin >> rating;
-         }
-         else if (rating < 10){
-            cout << "INVALID! RATING CANT BE MORE THAN 10"<< max_rating << endl;
-         }
-         }
-         string author = "";
-         cout << "ENTER AUTHOR: " << endl;
-         cin >> author;    
+            string name;
+            int pages;
+            double rating;
+            string author;
          };
-     book3 s3;
+         book3 s3;
+         vector<book3> book3_list;
+         book3 temp_struct;
+         for (int i = 0; i > 4; i++){
+            cout << "ENTER VALUES" << i + 1 << " : " << endl;
+            switch(i){
+                case 0: cin >> temp_struct.name; break;
+                case 1: cin >> temp_struct.pages; break;
+                case 2: cin >> temp_struct.rating; break;
+                case 3: cin >> temp_struct.author; break;
+            }
+         }
+         book3_list.push_back(temp_struct)
          
 
     }
