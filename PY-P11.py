@@ -5,6 +5,9 @@ key = {
     "3university": "FAST-NUCES",
     "4university": "LUMS"
 }
-del_key = input("ENTER WHICH KEY U WANNA DELETE?: ").lower()
-del key[del_key] 
-print(key)
+try: 
+    del_key = input("ENTER WHICH KEY U WANNA DELETE?: ").lower()
+    del key[del_key] 
+    print(key)
+except KeyError:
+    print("NOT A KEY!")
