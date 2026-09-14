@@ -2,17 +2,17 @@
 using namespace std;
 
 class employee{
-public;
+public:
     string name;
     string company;
     string gender;
     int age;
     
     void introduction(){
-        cout << "ENTER NAME: " << name << endl;
-        cout << "ENTER COMPANY: " << company << endl;
-        cout << "ENTER GENDER: " << gender << endl;
-        cout << "ENTER AGE: " << age << endl;
+        cout << name << "" << endl;
+        cout << company << "" << endl;
+        cout << gender << "" << endl;
+        cout << age << "" << endl;
     }
 
 };
