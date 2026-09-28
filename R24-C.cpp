@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 /*Abstract class Account with pure virtual double interestRate().
@@ -43,7 +44,19 @@ class CheckingAccount : public Abstractaccount{
 };
 int main() {
     SavingsAccount S (3462362.1, 0.5);
-    cout << S.calculateInterest() << endl;
     CheckingAccount C (183953521.56, 0.2);
-    cout << C.calculateInterest() << endl;
+    
+    vector<Abstractaccount*> AA;
+
+    AA.push_back(&S);
+    AA.push_back(&C);
+
+    for (Abstractaccount* a : AA){
+        cout << a->calculateInterest() << endl;
+    }
+
+    return 0;
+
+
+
 }
