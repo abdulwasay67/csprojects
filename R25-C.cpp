@@ -4,75 +4,80 @@
 
 using namespace std;
 
-/*Make a base "template" class Character with a name and health. Every character type must have its own attack() that returns
-how much damage it deals, but the base class doesn't say how.
-Make three types: Warrior, Mage, Archer. Each has its own damage number (you pick them), and each prints a different attack message.
-In the base class, add one shared method takeDamage(...) that reduces health. It works the same for every type, so write it once.
-Make a list of pointers to characters holding one of each type.
-Run 3 rounds. In each round, every character attacks the first character in the list, using the damage its own attack() returns. 
-Print the target's health after each hit.*/
-
-class Abstracttemplate {
-public:
-    virtual ~Abstracttemplate() = default;
-
-    virtual double attack() const = 0;
-
-    virtual double health() const = 0;
-
-
-    double attackdamage() const {
-        return attack();
-    }
-
-    double takedamage() const {
-        return health();
-    }
-
-};
-
 class Character {
 protected:
     string name;
     double health;
 
-    Character(string n, double h) : name(n), health(h) {}
+    Character(const string& n, double h) : name(n), health(h) {}
 
 public:
+    virtual ~Character() = default;
+
     virtual double attack() const = 0;
 
-    void takeDamage(double dmg) {
-        health -= dmg;
+    void takeDamage(double damage) {
+        health -= damage;
     }
 
-    double getHealth() const { return health; }
+    const string& getName() const {
+        return name;
+    }
+
+    double getHealth() const {
+        return health;
+    }
 };
 
 class Warrior : public Character {
-    double attackValue;
 public:
-    Warrior(string n, double h, double a) : Character(n, h), attackValue(a) {}
-    double attack() const override { return attackValue; }
+    Warrior(const string& n, double h) : Character(n, h) {}
+
+    double attack() const override {
+        cout << name << " swings a sword!\n";
+        return 50.0;
+    }
 };
 
 class Mage : public Character {
-    double attackValue;
 public:
-    Mage(string n, double h, double a) : Character(n, h), attackValue(a) {}
-    double attack() const override { return attackValue; }
+    Mage(const string& n, double h) : Character(n, h) {}
+
+    double attack() const override {
+        cout << name << " casts a spell!\n";
+        return 37.7;
+    }
 };
 
 class Archer : public Character {
-    double attackValue;
 public:
-    Archer(string n, double h, double a) : Character(n, h), attackValue(a) {}
-    double attack() const override { return attackValue; }
+    Archer(const string& n, double h) : Character(n, h) {}
+
+    double attack() const override {
+        cout << name << " fires an arrow!\n";
+        return 36.5;
+    }
 };
 
-int main(){
-    Warrior W(w, 100, 50.0);
-    Mage M(m, 100, 37.7);
-    Archer A(a, 100, 36.5 );
-    
+int main() {
+    Warrior warrior("Warrior", 100.0);
+    Mage mage("Mage", 100.0);
+    Archer archer("Archer", 100.0);
 
+    vector<Character*> characters{&warrior, &mage, &archer};
+    Character* target = characters.front();
+
+    for (int round = 1; round <= 3; ++round) {
+        cout << "Round " << round << ":\n";
+
+        for (Character* attacker : characters) {
+            const double damage = attacker->attack();
+            target->takeDamage(damage);
+
+            cout << target->getName() << "'s health: "
+                 << target->getHealth() << "\n";
+        }
+    }
+
+    return 0;
 }
