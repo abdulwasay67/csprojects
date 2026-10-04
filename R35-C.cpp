@@ -24,7 +24,7 @@ int main() {
     TreeNode* left = new TreeNode{30, nullptr, nullptr};
     TreeNode* right = new TreeNode{70, nullptr, nullptr};
     TreeNode* node2 = new TreeNode{25, nullptr, nullptr};
-    TreeNode* node3 = new TreeNode{85, nullptr, nullptr};
+    TreeNode* node3 = new TreeNode{60, nullptr, nullptr};
     TreeNode* node4 = new TreeNode{80, nullptr, nullptr};
     TreeNode* node5 = new TreeNode{15, nullptr, nullptr};
 
@@ -39,3 +39,5 @@ int main() {
     inOrder (root);
 
 }
+
+
